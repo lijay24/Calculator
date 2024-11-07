@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="./CSS/style.css">
+</head>
+<body>
+    <div class="container">
+<div class="display">
+
+</div>
+        <div class="grid">
+            <button class="special">C</button>
+            <button class="special">/</button>
+            <button class="special">=</button>
+            <button class="special">&#8592;</button>
+
+            <button>7</button>
+            <button>8</button>
+            <button>9</button>
+            <button>+</button>
+
+            <button>4</button>
+            <button>5</button>
+            <button>6</button>
+            <button>-</button>
+
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+            <button>.</button>
+
+            <button>(</button>
+            <button>0</button>
+            <button>)</button>
+            <button>*</button>
+        </div>
+    </div>
+    <script>
+        var buttons = document.querySelectorAll('.grid button');
+        var display =document.querySelector('.display');
+        buttons.forEach(function(button){
+button.addEventListener("click", function(e){
+    if (e.target.innerText == "="){
+         try{
+            display.innerText = eval(display.innerText);
+         }catch {
+            display.innerText = "Error";
+         }
+
+    }else if (e.target.innerText == "C"){
+        display.innerText = "";
+    }else if (e.target.innerText == "←"){
+display.innerText = display.innerText.slice(0.-1);
+    }
+    
+    
+    else{
+        display.innerText = display.innerText + e.target.innerText;
+    }
+    
+
+})
+    });
+                  
+    </script>
+</body>
+</html>
